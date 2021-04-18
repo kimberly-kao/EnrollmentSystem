@@ -5,10 +5,59 @@ body {
 
 h1 {
     position: relative;
-    top: 100px;
+    top: 105px;
     text-align: center;
     font-size: 25px;
 
+}
+
+*, ::after, ::before {
+    box-sizing: content-box;
+}
+
+.nav-tabs {
+    border-bottom: none;
+    position: fixed;
+    bottom: 104%;
+    right: 38%
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: #495057;
+    background-color: #BCD4D4;
+    border-style: solid;
+    border-width: 2px 3px;
+    border-color: black;
+    position: relative;
+
+}
+
+.tab-content>.active {
+    display: none;
+}
+
+.nav-tabs .nav-link{
+    margin-bottom: none;
+    background-color: #BCD4D4;
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid transparent;
+    border-top-left-radius: .0rem;
+    border-top-right-radius: .0rem;
+}
+
+.nav-link {
+    display: block;
+    padding: .4rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
 
 .loginform {
@@ -17,12 +66,12 @@ h1 {
     box-sizing: border-box;
     background: #BCD4D4;
     position: absolute;
-    top: 35%;
+    top: 37%;
     left: 50%;
     transform: translate(-50%,-50%);
     border-style: solid;
     border-width: 2px 3px;
-    color: black;
+    border-color: black;
     padding: 30px;
 
 }
@@ -43,18 +92,19 @@ h1 {
 
 }
 
-button {
+.loginform button {
     background-color: white;
+    font-size: 16px;
     padding: 10px 40px 10px;
     margin: 8px 0px;
     position: relative;
-    bottom: 3px;
-    left: 87px;
-    margin-bottom: 10px;
+    bottom: 10px;
+    left: 83px;
+    margin-bottom: 5px;
 
 }
 
-button:hover {
+.loginform button:hover {
     background-color: #ADD8E6;
     cursor: pointer;
 }
