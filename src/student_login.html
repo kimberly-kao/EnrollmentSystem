@@ -2,25 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Student Login</title>
         <link rel="stylesheet"
               href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="login-style.css">
 </head>
 <body>
+
     <h1>Student Login</h1>
+
+    <div class="logo-login">
+        <img src="images/zoom_logo.png" width="200" height="200"/>
+    </div>
 
     <!-- Login form -->
     <div class="loginform">
 
+        <!-- Nav tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="login.html">Student</a>
+                <a class="nav-link active" data-toggle="tab" href="student_login.html">Student</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="administrator.html">Administrator</a>
+                <a class="nav-link" data-toggle="tab" href="administrator_login.html">Administrator</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="">New Student</a>
             </li>
 
         </ul>
@@ -45,9 +55,11 @@
             </a>
 
             <br/>
-            <a href="">Forgot password?</a>
-            <a href="">Don't have an account?</a>
 
+            <div class="login-links">
+                <a href="forgot_password.html">Forgot password?</a>
+                <a href="">Don't have an account?</a>
+            </div>
         </form>
 
 
