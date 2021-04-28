@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 
 // building the schema
 const AdmissionsOfficerSchema = new mongoose.Schema({
-    Username: { type: Number },
-    Password: { type: Number },
-    Admin: { type: String },
-    Empl: { type: String },
-    State: { type: String },
-    Zip_Code: { type: Number },
-    Is_Shipping: { type: Boolean },
-    Is_Billing: { type: Boolean }
+    Username: { type: String },
+    Password: { type: String },
+    FirstName: { type: String },
+    LastName: { type: String },
+    MiddleName: { type: String },
+    Birthday: { type: String },
+    EmployeeID: { type: Number },
 });
 
 module.exports = mongoose.model('AdmissionsOfficer', AdmissionsOfficerSchema, 'AdmissionsOfficer');
