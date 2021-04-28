@@ -39,7 +39,7 @@ mongoose.connect(DB_STRING, { useNewUrlParser: true });
 
 // send the landing page to the client
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/PLACEHOLDER.html");
+  response.sendFile(__dirname + "/views/infoDump.html");
 });
 
 // listen for requests :)
