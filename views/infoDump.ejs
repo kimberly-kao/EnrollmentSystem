@@ -5,44 +5,138 @@
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="/stylesheets/style.css" rel="stylesheet" />
-    <title>Chickpea Test</title>
+    <title>Enrollment Test</title>
 </head>
 <body>
     <div id="header">
-        <h1>Chickpea Database Test Page</h1>
+        <h1>Enrollment Database Test Page</h1>
     </div>
-    <form action="/dump" method="get">
+    <form action="/infoDump" method="get">
         <button id="admissions-officer-button" class="btn" type="submit">Import Data</button>
     </form>
     <div class="database-tables">
         
         <div class="subheader">
-            Admissions officer
-            <button id="customer-button" class="btn">Import Data</button>
+            <h2>Admissions Officer</h2>
         </div>
         <table id="Customer" class="table" border="1" >
             <tr>
+                <th>Employee ID</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>First Name</th>
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Birthday</th>
-                <th>Employee ID</th>
             </tr>
             <!-- please reference for other tables -->
             <% if(locals.admis) {%>
-                <% for(var i = 0; i < student.length; i++) {%>
+                <% for(var i = 0; i < admis.length; i++) {%>
                     <tr>
+                        <td><%= admis[i].EmployeeID %></td>
                         <td><%= admis[i].Username %></td>
                         <td><%= admis[i].Password %></td>
                         <td><%= admis[i].FirstName %></td>
                         <td><%= admis[i].MiddleName %></td>
                         <td><%= admis[i].LastName %></td>
                         <td><%= admis[i].Birthday %></td>
-                        <td><%= admis[i].EmployeeID %></td>
                     </tr>
                 <% } %>
+            <% } %>
+        </table>
+
+        <div class="subheader">
+            <h2>Officer Changes</h2>
+        </div>
+        <table id="Customer" class="table" border="1" >
+            <tr>
+                <th>Change ID</th>
+                <th>Officer ID</th>
+                <th>ApplicantID</th>
+                <th>TimeStamp</th>
+                <th>Notes</th>
+            </tr>
+
+            <% if(locals.change) {%>
+                <% for(var i = 0; i < change.length; i++) {%>
+                    <tr>
+                        <td><%= change[i]._id %></td>
+                        <td><%= change[i].EmployeeID %></td>
+                        <td><%= change[i].ApplicantID %></td>
+                        <td><%= change[i].TimeStamp %></td>
+                        <td><%= change[i].Notes %></td>
+                    </tr>
+                <% } %>
+            <% } %>
+           
+        </table>
+
+
+        <div class="subheader">
+            <h2>Students</h2>
+        </div>
+        <table id="Customer" class="table" border="1" >
+            <tr>
+                <th>_id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>SubmissionDateTime</th>
+                <th>ApplicationStatus</th>
+
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>MiddleName</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>StudentEmail</th>
+                <th>StudentAddress</th>
+                <th>Telephone</th>
+
+                <th>Semester</th>
+                <th>SAT</th>
+                <th>Major</th>
+                <th>DegreeType</th>
+
+                <th>MilitaryStatus</th>
+                <th>PreviousSchool</th>
+                <th>SchoolAddress</th>
+
+                <th>Transcripts</th>
+                <th>APScores</th>
+                <th>LetterOfRec</th>
+                <th>Extracurriculum</th>
+            </tr>
+            <% if(locals.student) {%>
+                <% for(var i = 0; i < student.length; i++) {%>
+            <tr>
+
+           
+                <td><%= student[i]._id %></td>
+                <td><%= student[i].Username %></td>
+                <td><%= student[i].Password %></td>
+                <td><%= student[i].SubmissionDateTime %></td>
+                <td><%= student[i].ApplicationStatus %></td>
+                <td><%= student[i].FirstName %></td>
+                <td><%= student[i].LastName %></td>
+                <td><%= student[i].MiddleName %></td>
+                <td><%= student[i].Birthday %></td>
+                <td><%= student[i].Gender %></td>
+                <td><%= student[i].StudentEmail %></td>
+                <td><%= student[i].StudentAddress %></td>
+                <td><%= student[i].Telephone %></td>
+                <td><%= student[i].Semester %></td>
+                <td><%= student[i].SAT %></td>
+                <td><%= student[i].Major %></td>
+                <td><%= student[i].DegreeType %></td>
+                <td><%= student[i].MilitaryStatus %></td>
+                <td><%= student[i].PreviousSchool %></td>
+                <td><%= student[i].SchoolAddress %></td>
+                <td><%= student[i].Transcripts %></td>
+                <td><%= student[i].APScores %></td>
+                <td><%= student[i].LetterOfRec %></td>
+                <td><%= student[i].Extracurriculum %></td>
+            </tr>
+            <% } %>
             <% } %>
         </table>
         
