@@ -18,7 +18,7 @@ require('dotenv').config()
 
 // db string const
 // const DB_STRING = "mongodb+srv://" + process.env.db_user + ":" + process.env.db_pw + "@enrollmentdatabase.cchf4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const DB_STRING = "mongodb+srv://dpAccess:fX8HPWFlhaOuMNtF@enrollmentdatabase.cchf4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const DB_STRING = "mongodb+srv://dbAccess:wettowel@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
 
 // Allows for dynamic files
 app.set('view engine', 'ejs');

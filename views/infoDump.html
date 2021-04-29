@@ -11,14 +11,13 @@
     <div id="header">
         <h1>Enrollment System Test</h1>
     </div>
-    <form action="/dump" method="get">
+    <form action="/infoDump" method="get">
         <button id="customer-button" class="btn" type="submit">Import Data</button>
     </form>
     <div class="database-tables">
         
         <div class="subheader">
-            Admissions officer
-            <button id="customer-button" class="btn">Import Data</button>
+            <h2>Admissions officer</h2>
         </div>
         <table id="Customer" class="table" border="1" >
             <tr>
@@ -40,7 +39,92 @@
                 <td>Employee ID</td>
             </tr>
         </table>
+
+        <div class="subheader">
+            <h2>Officer Changes</h2>
+        </div>
+        <table id="Customer" class="table" border="1" >
+            <tr>
+                <th>Change ID</th>
+                <th>Officer ID</th>
+                <th>ApplicantID</th>
+                <th>TimeStamp</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Change ID</td>
+                <td>Officer ID</td>
+                <td>ApplicantID</td>
+                <td>TimeStamp</td>
+                <td>Notes</td>
+            </tr>
+        </table>
         
+        <div class="subheader">
+            <h2>Students</h2>
+        </div>
+        <table id="Customer" class="table" border="1" >
+            <tr>
+                <th>_id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>SubmissionDateTime</th>
+                <th>ApplicationStatus</th>
+
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>MiddleName</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>StudentEmail</th>
+                <th>StudentAddress</th>
+                <th>Telephone</th>
+
+                <th>Semester</th>
+                <th>SAT</th>
+                <th>Major</th>
+                <th>DegreeType</th>
+
+                <th>MilitaryStatus</th>
+                <th>PreviousSchool</th>
+                <th>SchoolAddress</th>
+
+                <th>Transcripts</th>
+                <th>APScores</th>
+                <th>LetterOfRec</th>
+                <th>Extracurricular</th>
+            </tr>
+            <tr>
+                <td>_id</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>SubmissionDateTime</td>
+                <td>ApplicationStatus</td>
+
+                <td>FirstName</td>
+                <td>LastName</td>
+                <td>MiddleName</td>
+                <td>Birthday</td>
+                <td>Gender</td>
+                <td>StudentEmail</td>
+                <td>StudentAddress</td>
+                <td>Telephone</td>
+
+                <td>Semester</td>
+                <td>SAT</td>
+                <td>Major</td>
+                <td>DegreeType</td>
+
+                <td>MilitaryStatus</td>
+                <td>PreviousSchool</td>
+                <td>SchoolAddress</td>
+                
+                <td>Transcripts</td>
+                <td>APScores</td>
+                <td>LetterOfRec</td>
+                <td>Extracurricular</td>
+            </tr>
+        </table>
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>

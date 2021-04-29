@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 // building the schema
 const OfficerChangesSchema = new mongoose.Schema({
-    OfficerID: { type: Number },
+    _id: { type: String},
+    EmployeeID: { type: Number },
     ApplicantID: { type: Number },
     TimeStamp: { type: Date },
     Notes: { type: String },

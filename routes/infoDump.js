@@ -21,7 +21,7 @@ function getStudent(req, res, next){
 };
 
 function getAdmissionsOfficer(req, res, next){
-    Student.find({}, function (err, admisOfficers) {
+    AdmissionsOfficer.find({}, function (err, admisOfficers) {
         console.log(admisOfficers);
         res.locals.admis = admisOfficers;
         next();
@@ -29,7 +29,7 @@ function getAdmissionsOfficer(req, res, next){
 };
 
 function getOfficerChanges(req, res, next){
-    Student.find({}, function (err, changes) {
+    OfficerChanges.find({}, function (err, changes) {
         console.log(changes);
         res.locals.change = changes;
         next();
@@ -37,7 +37,7 @@ function getOfficerChanges(req, res, next){
 };
 
 function render(req, res){
-    res.render("infoDump.ejs");
+    res.render("../views/infoDump.ejs");
 };
 
 module.exports = router;
