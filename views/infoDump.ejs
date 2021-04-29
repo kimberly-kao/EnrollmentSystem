@@ -77,7 +77,7 @@
         </div>
         <table id="Customer" class="table" border="1" >
             <tr>
-                <th>_id</th>
+                <th>Student ID</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>SubmissionDateTime</th>
@@ -108,35 +108,33 @@
             </tr>
             <% if(locals.student) {%>
                 <% for(var i = 0; i < student.length; i++) {%>
-            <tr>
-
-           
-                <td><%= student[i]._id %></td>
-                <td><%= student[i].Username %></td>
-                <td><%= student[i].Password %></td>
-                <td><%= student[i].SubmissionDateTime %></td>
-                <td><%= student[i].ApplicationStatus %></td>
-                <td><%= student[i].FirstName %></td>
-                <td><%= student[i].LastName %></td>
-                <td><%= student[i].MiddleName %></td>
-                <td><%= student[i].Birthday %></td>
-                <td><%= student[i].Gender %></td>
-                <td><%= student[i].StudentEmail %></td>
-                <td><%= student[i].StudentAddress %></td>
-                <td><%= student[i].Telephone %></td>
-                <td><%= student[i].Semester %></td>
-                <td><%= student[i].SAT %></td>
-                <td><%= student[i].Major %></td>
-                <td><%= student[i].DegreeType %></td>
-                <td><%= student[i].MilitaryStatus %></td>
-                <td><%= student[i].PreviousSchool %></td>
-                <td><%= student[i].SchoolAddress %></td>
-                <td><%= student[i].Transcripts %></td>
-                <td><%= student[i].APScores %></td>
-                <td><%= student[i].LetterOfRec %></td>
-                <td><%= student[i].Extracurriculum %></td>
-            </tr>
-            <% } %>
+                    <tr>
+                        <td><%= student[i]._id %></td>
+                        <td><%= student[i].Username %></td>
+                        <td><%= student[i].Password %></td>
+                        <td><%= student[i].SubmissionDateTime %></td>
+                        <td><%= student[i].ApplicationStatus %></td>
+                        <td><%= student[i].FirstName %></td>
+                        <td><%= student[i].LastName %></td>
+                        <td><%= student[i].MiddleName %></td>
+                        <td><%= student[i].Birthday %></td>
+                        <td><%= student[i].Gender %></td>
+                        <td><%= student[i].StudentEmail %></td>
+                        <td><%= student[i].StudentAddress %></td>
+                        <td><%= student[i].Telephone %></td>
+                        <td><%= student[i].Semester %></td>
+                        <td><%= student[i].SAT %></td>
+                        <td><%= student[i].Major %></td>
+                        <td><%= student[i].DegreeType %></td>
+                        <td><%= student[i].MilitaryStatus %></td>
+                        <td><%= student[i].PreviousSchool %></td>
+                        <td><%= student[i].SchoolAddress %></td>
+                        <td><%= student[i].Transcripts %></td>
+                        <td><%= student[i].APScores %></td>
+                        <td><%= student[i].LetterOfRec %></td>
+                        <td><%= student[i].Extracurriculum %></td>
+                    </tr>
+                <% } %>
             <% } %>
         </table>
         
