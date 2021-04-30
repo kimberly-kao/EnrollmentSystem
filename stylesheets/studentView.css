@@ -1,0 +1,76 @@
+.content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    background-color: #ADD8E6 !important;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#profilePic{
+    width: 250px;
+    height: 250px;
+    border: 10px black;
+    padding: 50px;
+    margin: 40px;
+    margin-top: 100px;
+    margin-left: 2px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#files{
+    width: 250px;
+    height: 450px;
+    border: 10px black;
+    padding: 50px;
+    margin: 40px;
+    margin-top: 30px;
+    margin-left: 2px;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+#input{
+    margin-top: 120px;
+}
+
+#ans{
+    margin-top: 120px;
+    margin-right: 100px;
+}
+
+.attribute{
+    height: 50px;
+    
+}
+
+#home{
+    font-size: 24px;
+    height: 16px;
+    width: 16px;
+}
+
+#editText{
+    margin-top: 150px;
+}
+
+
+#logOut{
+    margin-top: 200px;
+}
+
+#logo{
+    margin-top: 20px;
+}
+
+#studentAns{
+    margin-top: 10px;
+}
+
+

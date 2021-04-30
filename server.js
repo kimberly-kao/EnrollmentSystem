@@ -18,7 +18,7 @@ require('dotenv').config()
 
 // db string const
 // const DB_STRING = "mongodb+srv://" + process.env.db_user + ":" + process.env.db_pw + "@enrollmentdatabase.cchf4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const DB_STRING = "mongodb+srv://dbAccess:wettowel@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
+const DB_STRING = "mongodb+srv://dbAccess:oWMW6HAZPeR6SCnh@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
 
 // Allows for dynamic files
 app.set('view engine', 'ejs');
@@ -39,7 +39,7 @@ mongoose.connect(DB_STRING, { useNewUrlParser: true });
 
 // send the landing page to the client
 app.get("/", (request, response) => {
-  response.sendFile(__dirname + "/views/infoDump.html");
+  response.sendFile(__dirname + "/views/addStudent.html");
 });
 
 // listen for requests :)
