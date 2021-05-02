@@ -10,6 +10,10 @@ h1 {
     font-size: 25px;
 }
 
+.studentHeader{
+    top: 10px;
+}
+
 @media screen and (max-width: 1300px) {
   h1 {
     position: relative;
