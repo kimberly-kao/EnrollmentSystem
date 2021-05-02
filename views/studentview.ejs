@@ -13,7 +13,7 @@
     <tr>
 
    
-        <%= student[i]._id %>
+        <td><%= student[i]._id %></td>
         <td><%= student[i].Username %></td>
         <td><%= student[i].Password %></td>
         <td><%= student[i].SubmissionDateTime %></td>
@@ -27,6 +27,7 @@
         <td><%= student[i].StudentAddress %></td>
         <td><%= student[i].Telephone %></td>
         <td><%= student[i].Semester %></td>
+        <td><%= student[i].GPA %></td>
         <td><%= student[i].SAT %></td>
         <td><%= student[i].Major %></td>
         <td><%= student[i].DegreeType %></td>
@@ -37,6 +38,7 @@
         <td><%= student[i].APScores %></td>
         <td><%= student[i].LetterOfRec %></td>
         <td><%= student[i].Extracurriculum %></td>
+        <td><%= student[i].PIQ %></td>
     </tr>
    
 
@@ -61,46 +63,70 @@
                                     First Name: <%= student[i].FirstName %>
                                 </div>
                                 <div class="row attribute" id="mname">
-                                    Middle Name:
+                                    Middle Name: <%= student[i].MiddleName %>
                                 </div>
                                 <div class="row attribute" id="lname">
-                                    Last Name:
+                                    Last Name: <%= student[i].LastName %>
                                 </div>
                                 <div class="row attribute" id="address">
-                                    Address:
+                                    Address: <%= student[i].StudentAddress %>
                                 </div>
                                 <div class="row attribute" id="bday">
-                                    Birthday:
+                                    Birthday: <%= student[i].Birthday %>
                                 </div>
                                 <div class="row attribute" id="email">
-                                    Email:
+                                    Email: <%= student[i].StudentEmail %>
                                 </div>
                                 <div class="row attribute" id="telephone">
-                                    Telephone:
+                                    Telephone: <%= student[i].Telephone %>
+                                </div>
+                                <div class="row attribute" id="gender">
+                                    Gender: <%= student[i].Gender %>
                                 </div>
                                 <div class="row attribute" id="attribute">
-                                    Grade:
+                                    School: <%= student[i].PreviousSchool %>
                                 </div>
-                                <div class="row attribute" id="attribute">
-                                    School:
+                                <div class="row attribute" id="schooladdress">
+                                    School Address: <%= student[i].SchoolAddress %>
                                 </div>
                                 <div class="row attribute" id="gpa">
-                                    GPA:
+                                    GPA: <%= student[i].GPA %>
                                 </div>
                                 <div class="row attribute" id="major">
-                                    Major:
+                                    Major: <%= student[i].Major %>
                                 </div>
-                                <div class="row attribute" id="sScore">
-                                    SAT Score:
+                                <div class="row attribute" id="semester">
+                                    Semester: <%= student[i].Semester %>
                                 </div>
-                                <div class="row attribute" id="aScore">
-                                    ACT Score:
+                                <div class="row attribute" id="degree">
+                                    Degree Type: <%= student[i].DegreeType %>
+                                </div>
+                                <div class="row attribute" id="test">
+                                    Test: <%= student[i].APScores %>
+                                </div>
+                                <div class="row attribute" id="sat">
+                                    SAT: <%= student[i].SAT %>
+                                </div>
+                                <div class="row attribute" id="submission">
+                                    Submission Date: <%= student[i].SubmissionDateTime %>
+                                </div>
+                                <div class="row attribute" id="military">
+                                    Military Status: <%= student[i].MilitaryStatus %>
                                 </div>
                                 <div class="row attribute" id="piq">
-                                    PIQ: blah blah blah
+                                    PIQ: <%= student[i].PIQ %>
                                 </div>
                                 <div class="row attribute" id="status">
-                                    Status:
+                                    Status: <%= student[i].ApplicationStatus %>
+                                </div>
+                                <div class="row attribute" id="transcripts">
+                                    Transcripts: <%= student[i].Transcripts %>
+                                </div>
+                                <div class="row attribute" id="extracurriculum">
+                                    Extracurricular Activity: <%= student[i].Extracurriculum %> 
+                                </div>
+                                <div class="row attribute" id="lofrec">
+                                    Letter of Rec: <%= student[i].LetterOfRec %>
                                 </div>
                             </div>
                             <div class="col-4" id="ans">
@@ -125,7 +151,7 @@
                                 <div class="row attribute" id="telephone">
                                     123-456-7890
                                 </div>
-                                <div class="row attribute" id="attribute">
+                                <div class="row attribute" id="attribute">   
                                     12
                                 </div>
                                 <div class="row attribute" id="attribute">
