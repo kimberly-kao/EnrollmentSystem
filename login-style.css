@@ -15,6 +15,10 @@ h1 {
     margin-bottom: 10px;
 }
 
+#adminHead{
+    margin-top: 210px;
+    margin-bottom: 10px;
+}
 @media screen and (max-width: 1300px) {
   h1 {
     position: relative;
@@ -140,6 +144,16 @@ h1 {
     left: 29%;
 }
 
+.loginform .login-links1 a {
+    position: relative;
+    left: 29%;
+    top: -14px;
+}
+
 .loginform .login-links a:hover {
+    color: blue;
+}
+
+.loginform .login-links1 a:hover {
     color: blue;
 }
