@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="script.js"></script>
+        <link rel="stylesheet" href="/stylesheets/studentView.css">
+        <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+    </head>
+
+
+   
+    <tr>
+
+   
+        <%= student[i]._id %>
+        <td><%= student[i].Username %></td>
+        <td><%= student[i].Password %></td>
+        <td><%= student[i].SubmissionDateTime %></td>
+        <td><%= student[i].ApplicationStatus %></td>
+        <td><%= student[i].FirstName %></td>
+        <td><%= student[i].LastName %></td>
+        <td><%= student[i].MiddleName %></td>
+        <td><%= student[i].Birthday %></td>
+        <td><%= student[i].Gender %></td>
+        <td><%= student[i].StudentEmail %></td>
+        <td><%= student[i].StudentAddress %></td>
+        <td><%= student[i].Telephone %></td>
+        <td><%= student[i].Semester %></td>
+        <td><%= student[i].SAT %></td>
+        <td><%= student[i].Major %></td>
+        <td><%= student[i].DegreeType %></td>
+        <td><%= student[i].MilitaryStatus %></td>
+        <td><%= student[i].PreviousSchool %></td>
+        <td><%= student[i].SchoolAddress %></td>
+        <td><%= student[i].Transcripts %></td>
+        <td><%= student[i].APScores %></td>
+        <td><%= student[i].LetterOfRec %></td>
+        <td><%= student[i].Extracurriculum %></td>
+    </tr>
+   
+
+
+
+    <body>
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="profilePic">
+                            <center>image here</center>
+                        </div>
+                        <div id="files">
+                            <center> files here</center>
+                        </div>
+                    </div>
+                    <div class="col-5" id="boxStudent">
+                        <div class="row">
+                            <div class="col" id="input">
+                                <div class="row attribute" id="fname">
+                                    First Name: <%= student[i].FirstName %>
+                                </div>
+                                <div class="row attribute" id="mname">
+                                    Middle Name:
+                                </div>
+                                <div class="row attribute" id="lname">
+                                    Last Name:
+                                </div>
+                                <div class="row attribute" id="address">
+                                    Address:
+                                </div>
+                                <div class="row attribute" id="bday">
+                                    Birthday:
+                                </div>
+                                <div class="row attribute" id="email">
+                                    Email:
+                                </div>
+                                <div class="row attribute" id="telephone">
+                                    Telephone:
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    Grade:
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    School:
+                                </div>
+                                <div class="row attribute" id="gpa">
+                                    GPA:
+                                </div>
+                                <div class="row attribute" id="major">
+                                    Major:
+                                </div>
+                                <div class="row attribute" id="sScore">
+                                    SAT Score:
+                                </div>
+                                <div class="row attribute" id="aScore">
+                                    ACT Score:
+                                </div>
+                                <div class="row attribute" id="piq">
+                                    PIQ: blah blah blah
+                                </div>
+                                <div class="row attribute" id="status">
+                                    Status:
+                                </div>
+                            </div>
+                            <div class="col-4" id="ans">
+                                <div class="row attribute" id="fname">
+                                    Kimberly
+                                </div>
+                                <div class="row attribute" id="mname">
+                                    S.
+                                </div>
+                                <div class="row attribute" id="lname">
+                                    Kao
+                                </div>
+                                <div class="row attribute" id="address">
+                                    1234 Hogwarts Ave.
+                                </div>
+                                <div class="row attribute" id="bday">
+                                    10/22/2001
+                                </div>
+                                <div class="row attribute" id="email">
+                                    kkao@cpp.edu
+                                </div>
+                                <div class="row attribute" id="telephone">
+                                    123-456-7890
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    12
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    Walnut High School
+                                </div>
+                                <div class="row attribute" id="gpa">
+                                    3.72
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    Computer Science
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    1450
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    N/A
+                                </div>
+                                <div class="row attribute" id="attribute">
+                                    PIQ: blah blah blah
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 attribute" id="studentBtn">
+                        <div id = "logOut">
+                            <center>
+                                <button type="button" class="btn btn-primary btn-lg" id="logO">Log Out</button>
+                            </center>
+                        </div>
+                        <div id="logo">
+                            <img src="zoomUni.png" width=300 height=300>
+                        </div>
+                        <div id="buttons">
+                            <center>
+                                <button class="btn btn-primary" type="submit" id="edit">Edit</button>
+                                <button class="btn btn-primary" type="submit" id="save">Save</button>
+                            </center>
+                        </div>
+                        <div id="studentAns">
+                            <center>
+                                <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block hidden">Accept</button>
+                                <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block hidden">Reject</button>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

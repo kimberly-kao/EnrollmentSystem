@@ -1,8 +1,3 @@
-// server.js
-// where your node app starts
-
-// we've started you off with Express (https://expressjs.com/)
-// but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require('express-session');
@@ -39,10 +34,38 @@ mongoose.connect(DB_STRING, { useNewUrlParser: true });
 
 // send the landing page to the client
 app.get("/", (request, response) => {
+  response.sendFile(__dirname + "/views/student_login.html");
+});
+
+app.get('/studentLogin', function (request, response) {
+  response.sendFile(__dirname + "/views/student_login.html");
+});
+
+app.get('/admisLogin', function (request, response) {
+  response.sendFile(__dirname + "/views/administrator_login.html");
+});
+
+app.get('/addStudent', function (request, response) {
   response.sendFile(__dirname + "/views/addStudent.html");
 });
 
-// listen for requests :)
+app.get('/forgotPassword', function (request, response) {
+  response.sendFile(__dirname + "/views/forgot_password.html");
+});
+
+app.get('/studentView', function (request, response) {
+  response.render(__dirname + "/views/studentview.ejs");
+});
+
+app.get('/studentProfiles', function (request, response) {
+  response.render(__dirname + "/views/profiles.ejs");
+});
+
+app.get('/test', function (request, response) {
+  response.render(__dirname + "/views/infoDump.ejs");
+});
+
+// listen for requests
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });

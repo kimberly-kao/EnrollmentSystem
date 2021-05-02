@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <title>Applicant Profiles</title>
+      <script src="student.js"></script>
+  </head>
+  <body>
+    <form action="/student" method="get">
+        <button onclick="getStudents" class="btn" type="submit">Refresh Applicant Page</button>
+    </form>
+    <table>
+            <% if(locals.student) {%>
+                <% for(var i = 0; i < student.length; i++) { %>
+                
+                    <!--<button type="submit" name="student_name" value="<%= student[i]._id %>"> -->
+                        <td>
+                            <div>
+                            <center>
+                                <div
+                                style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"
+                                ></div>
+                                <footcaption>
+                                    <%= student[i].FirstName %>
+                                    <%= student[i].MiddleName %>
+                                    <%= student[i].LastName %>
+                                </footcaption>
+                            </center>
+                            </div>
+                        </td>
+                        <!--<input type="hidden" name="store_id" value="<%= store[i].Store_ID %>" /> -->
+                    <!--</button>-->
+               
+                <% } %>
+            <% } %>
+    </table>
+  </body>
+</html>
