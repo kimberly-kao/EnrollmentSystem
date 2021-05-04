@@ -10,30 +10,44 @@
     <form action="/student" method="get">
         <button onclick="getStudents" class="btn" type="submit">Refresh Applicant Page</button>
     </form>
-    <table>
-            <% if(locals.student) {%>
-                <% for(var i = 0; i < student.length; i++) { %>
-                
-                    <!--<button type="submit" name="student_name" value="<%= student[i]._id %>"> -->
-                        <td>
-                            <div>
-                            <center>
-                                <div
-                                style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"
-                                ></div>
-                                <footcaption>
-                                    <%= student[i].FirstName %>
-                                    <%= student[i].MiddleName %>
-                                    <%= student[i].LastName %>
-                                </footcaption>
-                            </center>
-                            </div>
-                        </td>
-                        <!--<input type="hidden" name="store_id" value="<%= store[i].Store_ID %>" /> -->
-                    <!--</button>-->
-               
+    <div class="database-tables">
+        
+
+        <div class="subheader">
+            <h2>Students</h2>
+        </div>
+        <table id="Students" class="table" border="1" >
+           
+            
+          
+                <% if(locals.student) {%>
+                    <% for(var i = 0; i < student.length; i++) {%>
+                <td>
+                    
+                    <div>
+                        <%= student[i].DegreeType %><br>
+                        <center>
+                        <div
+                        style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"
+                        ></div>
+                        <footcaption>
+                            <%= student[i].ApplicationStatus %><br>
+                            <%= student[i].FirstName %>
+                            <%= student[i].MiddleName %>
+                            <%= student[i].LastName %><br>
+                            <%= student[i]._id %>
+                        </footcaption>
+                    </center>
+                    
+                    </div>
+                </td>
                 <% } %>
-            <% } %>
-    </table>
+                <% } %>
+            
+           
+        </table>
+        
+        
+    </div>
   </body>
 </html>

@@ -8,8 +8,8 @@ var Officer = require('./admissions')
 var OfficerChanges = require('./officerChanges')
 
 router.use("/infoDump", InfoDump)
-router.use("/student", Officer)
-router.use("/admissions", Student)
+router.use("/student", Student)
+router.use("/admissions", Officer)
 router.use("/changes", OfficerChanges)
 
 module.exports = router;
