@@ -2,8 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-var routes = require('./routes');
+const bodyParser = require('body-parser');
+const StudentUser = require('./schema/StudentSchema')
+
+const InitiateMongoServer = require("./config/db");
+InitiateMongoServer();
+
 const app = express();
+var routes = require('./routes');
 
 // trust first proxy for glitch?
 app.set('trust proxy', 1);
@@ -22,6 +28,8 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use(bodyParser.json())
+
 // making all the routes in "/routes" available
 app.use(routes);
 
@@ -29,8 +37,47 @@ app.use(routes);
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
 
+app.post('/api/register', async (req, res) => {
+  
+  console.log(req.body)
+  const { Username, Password } = req.body
+
+  if (!Username || typeof Username !== 'string'){
+    return res.json ({ status: 'error', error: 'Invaild Username'})
+  }
+
+  if (!Password || typeof Password !== 'string'){
+    return res.json ({ status: 'error', error: 'Invaild Password'})
+  }
+
+  if (Password.length < 5){
+    return res.json ({ status: 'error', error: 'Password must be at least 6 characters'})
+  }
+
+  res.json({status : 'ok'})
+
+  try{
+    const response = await StudentUser.create({
+      Username,
+      Password
+    })
+    console.log("User created sucessfully: ", response)
+  } catch(error) {
+    if (error.code === 11000) {
+      //Duplicate Key
+      return res.json({ status: 'error', error: 'Username already in use'})
+    }
+    throw error
+  }
+
+})
+
 // connecting to the database
-mongoose.connect(DB_STRING, { useNewUrlParser: true });
+mongoose.connect(DB_STRING, { 
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex: true
+});
 
 // send the landing page to the client
 app.get("/", (request, response) => {
@@ -46,7 +93,7 @@ app.get('/admisLogin', function (request, response) {
 });
 
 app.get('/addStudent', function (request, response) {
-  response.sendFile(__dirname + "/views/addStudent.html");
+  response.render(__dirname + "/views/addStudent.ejs");
 });
 
 app.get('/forgotPassword', function (request, response) {
@@ -55,6 +102,10 @@ app.get('/forgotPassword', function (request, response) {
 
 app.get('/studentView', function (request, response) {
   response.render(__dirname + "/views/studentview.ejs");
+});
+
+app.get('/AdmisStudentView', function (request, response) {
+  response.render(__dirname + "/views/admisStudentView.ejs");
 });
 
 app.get('/studentProfiles', function (request, response) {

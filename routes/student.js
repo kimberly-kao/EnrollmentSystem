@@ -48,7 +48,7 @@ function getStudentDetails (req, res, next){
 }
 
 function renderStudentView(req, res){
-    res.render("../views/studentview.ejs");
+    res.render("../views/admisStudentView.ejs");
 }
 
 module.exports = router;

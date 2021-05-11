@@ -4,125 +4,181 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta charset="utf-8" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link href="/stylesheets/addStudent.css" rel="stylesheet" />
+        <link href="../stylesheets/addStudent.css" rel="stylesheet" />
     </head>
     <body>
         <div class="content">
             <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div id="profilePic">
-                            <center>image here</center>
-                        </div>
-                        <div id="files">
-                            <center> files here</center>
-                        </div>
-                    </div>
-                    <div class="col-5" id="boxStudent">
-                        <div class="row">
-                            <div class="col" id="input">
-                                <div class="row attribute" id="fname">
-                                    First Name:
-                                </div>
-                                <div class="row attribute" id="mname">
-                                    Middle Name:
-                                </div>
-                                <div class="row attribute" id="lname">
-                                    Last Name:
-                                </div>
-                                <div class="row attribute" id="address">
-                                    Address:
-                                </div>
-                                <div class="row attribute" id="bday">
-                                    Birthday:
-                                </div>
-                                <div class="row attribute" id="email">
-                                    Email:
-                                </div>
-                                <div class="row attribute" id="telephone">
-                                    Telephone:
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    Grade:
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    School:
-                                </div>
-                                <div class="row attribute" id="gpa">
-                                    GPA:
-                                </div>
-                                <div class="row attribute" id="major">
-                                    Major:
-                                </div>
-                                <div class="row attribute" id="sScore">
-                                    SAT Score:
-                                </div>
-                                <div class="row attribute" id="aScore">
-                                    ACT Score:
-                                </div>
-                                <div class="row attribute" id="piq">
-                                    PIQ: blah blah blah
-                                </div>
+                <form id="reg-form">
+                    <div class="row">
+                    
+                        <div class="col">
+                            <div id="profilePic">
+                                <center>image here</center>
                             </div>
-                            <div class="col-4" id="ans" >
-                                <div class="row attribute studentAns" id="fname" contenteditable="true" >
+                            <div id="files">
+                                <div class="row attribute"  >
+                                    <input type="text" id="transcript" placeholder="Enter Transcripts Here" />
+                                </div>
+                                <div class="row attribute" >
+                                    <input type="text" id="saScore" placeholder="Enter SAT/ACT Score Here" />
+                                </div>
+                                <div class="row attribute"  >
+                                    <input type="text" id="piq" placeholder="Enter PIQ Here" />
                                     
                                 </div>
-                                <div class="row attribute studentAns" id="mname" contenteditable="true">
-                                   
-                                </div>
-                                <div class="row attribute studentAns" id="lname" contenteditable="true">  
+                                <div class="row attribute"  >
+                                    <input type="text" id="letters" placeholder="Enter Letter of Recs Here" />
                                     
-                                </div>
-                                <div class="row attribute studentAns" id="address" contenteditable="true">
-                                    
-                                </div>
-                                <div class="row attribute studentAns" id="bday" contenteditable="true">
-                                   
-                                </div>
-                                <div class="row attribute studentAns"  id="email" contenteditable="true">
-                                  
-                                </div>
-                                <div class="row attribute studentAns" id="telephone" contenteditable="true">
-                                   
-                                </div>
-                                <div class="row attribute studentAns" id="grade" contenteditable="true">
-                                    
-                                </div>
-                                <div class="row attribute studentAns" id="school" contenteditable="true">
-                                 
-                                </div>
-                                <div class="row attribute studentAns" id="gpa" contenteditable="true">
-                                   
-                                </div>
-                                <div class="row attribute studentAns" id="major" contenteditable="true"> 
-                                    
-                                </div>
-                                <div class="row attribute studentAns" id="sat" contenteditable="true">
-                                 
-                                </div>
-                                <div class="row attribute studentAns" id="act" contenteditable="true">
-                                    
-                                </div>
-                                <div class="row attribute studentAns" id="piq" contenteditable="true">
-                                   
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-3 attribute" id="studentBtn">
-                        <div id="logo">
-                            <img src="zoomUni.png" width=300 height=300>
+                        <div class="col-5" id="boxStudent">
+                            <div class="row">
+                                <div class="col" id="input">
+                                    <div class="row attribute" >
+                                        Username:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Password:
+                                    </div>
+                                    <div class="row attribute" >
+                                        First Name:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Middle Name:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Last Name:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Gender:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Address:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Birthday:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Email:
+                                    </div>
+                                    <div class="row attribute">
+                                        Telephone:
+                                    </div>
+                                    <div class="row attribute" >
+                                        Grade:
+                                    </div>
+                                    <div class="row attribute">
+                                        School:
+                                    </div>
+                                    <div class="row attribute">
+                                        GPA:
+                                    </div>
+                                    <div class="row attribute">
+                                        Major:
+                                    </div>
+                                    <div class="row attribute">
+                                        Mil. Status:
+                                    </div>
+                                </div>
+                                <div class="col-4" id="ans" >
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="username" placeholder="Enter username here" />
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="password" placeholder="Enter password here" />
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="fname" placeholder="Enter first name here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="mname" placeholder="Enter middle name here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">  
+                                        <input type="text" id="lname" placeholder="Enter last name here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="gender" placeholder="Enter gender here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="address" placeholder="Enter address here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="bday" placeholder="Enter birthday here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="email" placeholder="Enter email here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="telephone" placeholder="Enter telephone here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="grade" placeholder="Enter grade here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="school" placeholder="Enter high school here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="gpa" placeholder="Enter GPA here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns"> 
+                                        <input type="text" id="major" placeholder="Enter major here" />
+                                        
+                                    </div>
+                                    <div class="row attribute studentAns">
+                                        <input type="text" id="militaryStatus" placeholder="Enter military Status here" />
+                                        
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div id="buttons">
+                        <div class="col-3 attribute" id="studentBtn">
                             <center>
-                                <button type="button" class="btn btn-primary btn-lg" id="submit">Submit</button>
+                                <div id="logo">
+                                    <img src="images/zoom_logo.png" width=300 height=300>
+                                </div>
+                                <div id="buttons">
+                                    <input type="submit" class="btn btn-primary btn-lg" value="SubmitForm" />
+                                </div>
                             </center>
+                            
                         </div>
-                        
+                    
                     </div>
-                </div>
+                </form>
             </div>
         </div>
+        <script>
+            const form = document.getElementById('reg-form')
+            form.addEventListener('submit', registerUser)
+
+            async function registerUser(event){
+                event.preventDefault()
+                const Username = document.getElementById('username').value
+                const Password = document.getElementById('password').value
+
+                const result = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        Username, Password
+                    })
+                }).then((res) => res.json())
+            }
+        </script>
     </body>
 </html>

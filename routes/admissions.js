@@ -19,7 +19,7 @@ function getAdmissionsOfficer(req, res, next){
 };
 
 function render(req, res){
-    res.render("../views/infoDump.ejs");
+    res.render("../views/administrator_login.html");
 };
 
 module.exports = router;
