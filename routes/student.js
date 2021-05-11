@@ -43,6 +43,7 @@ function getStudentDetails (req, res, next){
     Student.findOne({_id: req.body._id}, function(err, student_details){
         res.locals.student = student_details;
         res.send(res.locals);
+        next();
     });
 }
 
