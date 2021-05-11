@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="../stylesheets/addStudent.css" rel="stylesheet" />
     </head>
+    <!-- This is where a new student can be added to the database -->
     <body>
         <div class="content">
             <div class="container">
@@ -16,6 +17,7 @@
                             <div id="profilePic">
                                 <center>image here</center>
                             </div>
+                            <!-- input Document info here-->
                             <div id="files">
                                 <div class="row attribute"  >
                                     <input type="text" id="transcript" placeholder="Enter Transcripts Here" />
@@ -33,6 +35,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- This stays as it is, it is the row names -->
                         <div class="col-5" id="boxStudent">
                             <div class="row">
                                 <div class="col" id="input">
@@ -82,6 +85,7 @@
                                         Mil. Status:
                                     </div>
                                 </div>
+                                <!-- Begin main User input for new student info -->
                                 <div class="col-4" id="ans" >
                                     <div class="row attribute studentAns">
                                         <input type="text" id="username" placeholder="Enter username here" />
@@ -149,6 +153,7 @@
                                 <div id="logo">
                                     <img src="images/zoom_logo.png" width=300 height=300>
                                 </div>
+                                <!-- The submit button, this will likely need to be linked to the create student route -->
                                 <div id="buttons">
                                     <input type="submit" class="btn btn-primary btn-lg" value="SubmitForm" />
                                 </div>
@@ -166,18 +171,33 @@
 
             async function registerUser(event){
                 event.preventDefault()
-                const Username = document.getElementById('username').value
-                const Password = document.getElementById('password').value
-
-                const result = await fetch('/api/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        Username, Password
-                    })
-                }).then((res) => res.json())
+                await db.collection('Student').insertOne({
+                    Username: document.getElementById('username').value,
+                    Password: document.getElementById('password').value,
+                    FirstName: document.getElementById('password').value,
+                    LastName: document.getElementById('password').value,
+                    MiddleName: document.getElementById('password').value,
+                    Birthday: document.getElementById('password').value,
+                    Gender: document.getElementById('password').value,
+                    StudentAddress: document.getElementById('password').value,
+                    Semester: document.getElementById('password').value,
+                    SAT: document.getElementById('password').value,
+                    Major: document.getElementById('password').value,
+                    StudentEmail: document.getElementById('password').value,
+                    DegreeType: document.getElementById('password').value,
+                    MilitaryStatus: document.getElementById('password').value,
+                    PreviousSchool: document.getElementById('password').value,
+                    PreviousSchoolAddress: document.getElementById('password').value,
+                    ApplicationStatus: document.getElementById('password').value,
+                    Telephone: document.getElementById('password').value,
+                    SubmissionDateTime: document.getElementById('password').value,
+                    Transcripts: document.getElementById('password').value,
+                    APScores: document.getElementById('password').value,
+                    LetterOfRec: document.getElementById('password').value,
+                    Extracurricular: document.getElementById('password').value,
+                    PIQ: document.getElementById('password').value
+                });
+                
             }
         </script>
     </body>

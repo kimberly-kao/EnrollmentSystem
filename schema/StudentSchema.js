@@ -26,11 +26,9 @@ const StudentSchema = new mongoose.Schema(
         APScores: { type: String },
         LetterOfRec: { type: String },
         Extracurricular: { type: String },
-        PIQ: { type: String}
-    },
-    { collection: 'students'}
+        PIQ: { type: String},
+        Response: { type: String}
+    }
 );
 
-const model = mongoose.model('StudentSchema', StudentSchema)
-
-module.exports = model
+module.exports = mongoose.model('StudentSchema', StudentSchema, 'StudentSchema')

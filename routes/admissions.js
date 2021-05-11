@@ -8,18 +8,19 @@ app.set('view engine', 'ejs');
 
 var AdmissionsOfficer = require('../schema/AdmissionsOfficerSchema');
 
+// Pull all the Officer's information
 router.get('/', getAdmissionsOfficer, render);
 
-function getAdmissionsOfficer(req, res, next){
-    AdmissionsOfficer.find({}, function (err, admisOfficers) {
-        console.log(admisOfficers);
-        res.locals.admis = admisOfficers;
-        next();
-    });
-};
+    function getAdmissionsOfficer(req, res, next){
+        AdmissionsOfficer.find({}, function (err, admisOfficers) {
+            console.log(admisOfficers);
+            res.locals.admis = admisOfficers;
+            next();
+        });
+    };
 
-function render(req, res){
-    res.render("../views/administrator_login.html");
-};
+    function render(req, res){
+        res.render("../views/administrator_login.html");
+    };
 
 module.exports = router;

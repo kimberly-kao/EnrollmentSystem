@@ -1,4 +1,4 @@
-// route responsible for the database dump
+// Will likley not keep this Route
 var express = require('express');
 
 var router = express.Router();
@@ -8,6 +8,7 @@ app.set('view engine', 'ejs');
 
 var OfficerChanges = require('../schema/OfficerChangesSchema');
 
+// Pull all offcier changes
 router.get('/', getOfficerChanges, render);
 
 function getOfficerChanges(req, res, next){

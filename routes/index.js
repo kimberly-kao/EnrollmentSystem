@@ -2,7 +2,6 @@
 var express = require('express');
 var router = express.Router();
 
-var InfoDump = require('./infoDump')
 var Student = require('./student')
 var Officer = require('./admissions')
 var OfficerChanges = require('./officerChanges')

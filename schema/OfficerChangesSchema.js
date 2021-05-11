@@ -1,3 +1,4 @@
+// Will likley not keep this Schema
 const mongoose = require("mongoose");
 
 // building the schema

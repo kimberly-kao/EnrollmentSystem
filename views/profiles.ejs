@@ -7,27 +7,27 @@
       <script src="student.js"></script>
       <link rel="stylesheet" href="../stylesheets/profiles.css">
   </head>
+  <!-- This page loads all of the student profiles as boxes with associated application statuses, as a way for admissions officers to sort them. Only Admissions officers can see this -->
   <body>
+      <!-- Currently this button is needed to load the student boxes, they should display when the page first loads -->
     <form action="/student" method="get">
         <button onclick="getStudents" class="btn" type="submit">Refresh Applicant Page</button>
     </form>
+    
     <div class="database-tables">
-        
 
         <div class="subheader">
             <h2>Students</h2>
         </div>
+
         <table id="Students" class="table" border="1" >
-           
-          
-                <% if(locals.student) {%>
-                    <% for(var i = 0; i < student.length; i++) {%>
-                <td>
-                    
-                    <div>
-                        
-                        <center>
-                            <%= student[i].DegreeType %><br>
+            <% if(locals.student) {%>
+                <% for(var i = 0; i < student.length; i++) {%>
+                    <td>
+                        <div>
+                            <center>
+                                <%= student[i].DegreeType %><br>
+                                <!-- Switch case for box color based on application status -->
                                 <% switch (student[i].ApplicationStatus) {
                                     case 'Accepted' : %>
                                         <div style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
@@ -36,46 +36,38 @@
                                     case 'Waitlist' : %>
                                         <div style="width:150px;height:150px;background-color:#F8DD7F;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
                                         <% break;
-                                    
+                                        
                                     case 'Pending' : %>
                                         <div style="width:150px;height:150px;background-color:LightGray;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
                                         <% break;
-                                    
+                                        
                                     case 'Denied' : %>
                                         <div style="width:150px;height:150px;background-color:#D97F7F;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
                                         <% break;
-                                    
+                                        
                                 } %>
-                               
-                            
-                        <footcaption>
-                            <%= student[i].ApplicationStatus %><br>
-                            <%= student[i].FirstName %>
-                            <%= student[i].MiddleName %>
-                            <%= student[i].LastName %><br>
-                            <%= student[i]._id %><br>
-                            <form action="/student/detail" method="post">
-                                <button type="submit" name="_id" value="<%= student[i]._id %>">
-                                    View Profile
-                                    <input type="hidden" name="_id" value="<%= student[i]._id  %>" />
-                                </button>
-                            </form>
-                            
-                        </footcaption>
-                        
-                        </center>
-                        
-                        
-                    </div>
-                   
-                </td>
+                                
+                                <footcaption>
+                                    <%= student[i].ApplicationStatus %><br>
+                                    <%= student[i].FirstName %>
+                                    <%= student[i].MiddleName %>
+                                    <%= student[i].LastName %><br>
+                                    <%= student[i]._id %><br>
+                                    <!-- In theory this button should load /views/admisStudentView with the relevent student's info-->
+                                    <!-- I need some way to send the student's id to get that info-->
+                                    <form action="/student/detail" method="post">
+                                        <button type="submit" name="_id" value="<%= student[i]._id %>">
+                                            View Profile
+                                            <input type="hidden" name="_id" value="<%= student[i]._id  %>" />
+                                        </button>
+                                    </form>
+                                </footcaption>
+                            </center>   
+                        </div>
+                    </td>
                 <% } %>
-                <% } %>
-            
-           
+            <% } %>
         </table>
-        
-        
     </div>
   </body>
 </html>

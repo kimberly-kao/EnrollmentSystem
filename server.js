@@ -37,6 +37,7 @@ app.use(routes);
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
 
+// This is left over from trying to authenticate log in info, I don't know if it'll actually work since the tutorial did not use Atlas
 app.post('/api/register', async (req, res) => {
   
   console.log(req.body)
