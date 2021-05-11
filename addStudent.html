@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="addStudent.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="../stylesheets/addStudent.css" rel="stylesheet" />
     </head>
     <body>
         <div class="content">
@@ -14,7 +15,18 @@
                             <center>image here</center>
                         </div>
                         <div id="files">
-                            <center> files here</center>
+                            <div class="row attribute" id="transcript" contenteditable="true">
+                                Enter Transcripts Here
+                            </div>
+                            <div class="row attribute" id="saScore" contenteditable="true">
+                                Enter SAT/ACT Score Here
+                            </div>
+                            <div class="row attribute" id="piq" contenteditable="true">
+                                Enter PIQ Here
+                            </div>
+                            <div class="row attribute" id="letters" contenteditable="true">
+                                Enter Letter of Recs Here
+                            </div>
                         </div>
                     </div>
                     <div class="col-5" id="boxStudent">
@@ -28,6 +40,9 @@
                                 </div>
                                 <div class="row attribute" id="lname">
                                     Last Name:
+                                </div>
+                                <div class="row attribute" id="gender">
+                                    Gender:
                                 </div>
                                 <div class="row attribute" id="address">
                                     Address:
@@ -53,58 +68,49 @@
                                 <div class="row attribute" id="major">
                                     Major:
                                 </div>
-                                <div class="row attribute" id="sScore">
-                                    SAT Score:
-                                </div>
-                                <div class="row attribute" id="aScore">
-                                    ACT Score:
-                                </div>
-                                <div class="row attribute" id="piq">
-                                    PIQ: blah blah blah
+                                <div class="row attribute" id="militaryStatus">
+                                    Mil. Status:
                                 </div>
                             </div>
                             <div class="col-4" id="ans" >
                                 <div class="row attribute studentAns" id="fname" contenteditable="true" >
-                                    
+                                    Enter first name here
                                 </div>
                                 <div class="row attribute studentAns" id="mname" contenteditable="true">
-                                   
+                                    Enter middle name here
                                 </div>
                                 <div class="row attribute studentAns" id="lname" contenteditable="true">  
-                                    
+                                    Enter last name here
+                                </div>
+                                <div class="row attribute studentAns" id="gender" contenteditable="true">
+                                    Enter gender here
                                 </div>
                                 <div class="row attribute studentAns" id="address" contenteditable="true">
-                                    
+                                    Enter address here
                                 </div>
                                 <div class="row attribute studentAns" id="bday" contenteditable="true">
-                                   
+                                    Enter birthday here
                                 </div>
                                 <div class="row attribute studentAns"  id="email" contenteditable="true">
-                                  
+                                    Enter email here
                                 </div>
                                 <div class="row attribute studentAns" id="telephone" contenteditable="true">
-                                   
+                                    Enter telephone here
                                 </div>
                                 <div class="row attribute studentAns" id="grade" contenteditable="true">
-                                    
+                                    Enter grade here
                                 </div>
                                 <div class="row attribute studentAns" id="school" contenteditable="true">
-                                 
+                                    Enter high school here
                                 </div>
                                 <div class="row attribute studentAns" id="gpa" contenteditable="true">
-                                   
+                                    Enter GPA here
                                 </div>
                                 <div class="row attribute studentAns" id="major" contenteditable="true"> 
-                                    
+                                    Enter major here
                                 </div>
-                                <div class="row attribute studentAns" id="sat" contenteditable="true">
-                                 
-                                </div>
-                                <div class="row attribute studentAns" id="act" contenteditable="true">
-                                    
-                                </div>
-                                <div class="row attribute studentAns" id="piq" contenteditable="true">
-                                   
+                                <div class="row attribute studentAns" id="militaryStatus" contenteditable="true">
+                                    Enter military Status here
                                 </div>
                             </div>
                         </div>
