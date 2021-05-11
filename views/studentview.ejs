@@ -10,39 +10,46 @@
 
 
    
-    <tr>
-
-   
-        <%= student[i]._id %>
-        <td><%= student[i].Username %></td>
-        <td><%= student[i].Password %></td>
-        <td><%= student[i].SubmissionDateTime %></td>
-        <td><%= student[i].ApplicationStatus %></td>
-        <td><%= student[i].FirstName %></td>
-        <td><%= student[i].LastName %></td>
-        <td><%= student[i].MiddleName %></td>
-        <td><%= student[i].Birthday %></td>
-        <td><%= student[i].Gender %></td>
-        <td><%= student[i].StudentEmail %></td>
-        <td><%= student[i].StudentAddress %></td>
-        <td><%= student[i].Telephone %></td>
-        <td><%= student[i].Semester %></td>
-        <td><%= student[i].SAT %></td>
-        <td><%= student[i].Major %></td>
-        <td><%= student[i].DegreeType %></td>
-        <td><%= student[i].MilitaryStatus %></td>
-        <td><%= student[i].PreviousSchool %></td>
-        <td><%= student[i].SchoolAddress %></td>
-        <td><%= student[i].Transcripts %></td>
-        <td><%= student[i].APScores %></td>
-        <td><%= student[i].LetterOfRec %></td>
-        <td><%= student[i].Extracurriculum %></td>
-    </tr>
    
 
 
 
     <body>
+        <form action="/student" method="get">
+            <button onclick="getStudent" class="btn" type="submit">Refresh Applicant Page</button>
+        </form>
+        <tr>
+
+            <% if(locals.student) {%>
+                
+            <%= student[1]._id %>
+            <td><%= student[1].Username %></td>
+            <td><%= student[1].Password %></td>
+            <td><%= student[1].SubmissionDateTime %></td>
+            <td><%= student[1].ApplicationStatus %></td>
+            
+            <td><%= student[1].LastName %></td>
+           
+            <td><%= student[1].Birthday %></td>
+            <td><%= student[1].Gender %></td>
+            <td><%= student[1].StudentEmail %></td>
+            <td><%= student[1].StudentAddress %></td>
+            <td><%= student[1].Telephone %></td>
+            <td><%= student[1].Semester %></td>
+            <td><%= student[1].SAT %></td>
+            <td><%= student[1].Major %></td>
+            <td><%= student[1].DegreeType %></td>
+            <td><%= student[1].MilitaryStatus %></td>
+            <td><%= student[1].PreviousSchool %></td>
+            <td><%= student[1].SchoolAddress %></td>
+            <td><%= student[1].Transcripts %></td>
+            <td><%= student[1].APScores %></td>
+            <td><%= student[1].LetterOfRec %></td>
+            <td><%= student[1].Extracurriculum %></td>
+
+                    <% } %>
+        </tr>
+       
         <div class="content">
             <div class="container">
                 <div class="row">
@@ -58,7 +65,7 @@
                         <div class="row">
                             <div class="col" id="input">
                                 <div class="row attribute" id="fname">
-                                    First Name: <%= student[i].FirstName %>
+                                    First Name: 
                                 </div>
                                 <div class="row attribute" id="mname">
                                     Middle Name:
@@ -105,13 +112,15 @@
                             </div>
                             <div class="col-4" id="ans">
                                 <div class="row attribute" id="fname">
-                                    Kimberly
+                                    <%= student[1].FirstName %>
                                 </div>
-                                <div class="row attribute" id="mname">
-                                    S.
+                                <div class="row attribute" id="mname"></div>
+                                    <% if(student[1].MiddleName != "N/A") {%>
+                                        <%= student[1].MiddleName %>
+                                    <% } %>   
                                 </div>
                                 <div class="row attribute" id="lname">
-                                    Kao
+                                    <%= student[1].LastName %>
                                 </div>
                                 <div class="row attribute" id="address">
                                     1234 Hogwarts Ave.
