@@ -2,6 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 const app = express();
+const mongoose = require('mongoose');
 
 app.set('view engine', 'ejs');
 
@@ -58,62 +59,52 @@ router.post('/mine', getStudentDetails, renderStudentView);
         res.render("../views/studentview.ejs");
     }
 
-// Admissions send decision for student
-router.post('/admisDecision', getStudentDetails, updateDecision, renderAdmisStudentView);
+// Admissions send decision for student, this will update the whole thing not just the one attribute I wanted
+router.patch('/admisDecision/:id', updateDecision, renderAdmisStudentView);
 
     function updateDecision (req, res, next){
-
-        // Write to Student.ApplicationStatus according to input: waitlist, accept or denied
-
+/*
+        try {
+            await Student.findByIdAndUpdate(req.params.id, req.body);
+            await Student.save();
+            res.send(food);
+          } catch (error) {
+            res.status(500).send(error);
+          }
+        }
+*/
         next();       
     }
 
-// Applicant send decision on admission
-router.post('/admisDecision', getStudentDetails, updateEnrollment, renderStudentView);
+// Applicant send decision on admission, this will update the whole thing not just the one attribute I wanted
+router.patch('/appDecision/:id', updateEnrollment, renderStudentView);
     
         function updateEnrollment (req, res, next){
-    
-            // Write to Student.Response according to input: accept or denied
-            
+    /*
+            try {
+                await Student.findByIdAndUpdate(req.params.id, req.body);
+                await Student.save();
+                res.send(food);
+              } catch (error) {
+                res.status(500).send(error);
+              }
+            */
             next();   
         }
 
 // create a new applicant
 router.post('/application', createStudent, returnToLogIn);
     
-            async function run() {
-
-                try {
-            
-                await client.connect();
-                
-                    const database = client.db("sample_mflix");
-                
-                    const movies = database.collection("movies");
-                
-                    // create a document to be inserted
-                
-                    const doc = { name: "Red", town: "kanto" };
-                
-                    const result = await movies.insertOne(doc);
-                
-                    console.log(
-                
-                        `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`,
-                
-                    );
-            
-                } finally {
-            
-                    await client.close();
-            
-                }
-            
-            }
         function createStudent (req, res, next){
-    
-            
-            
+/*
+            const newStudent = new Student(req.body);
+            try {
+                await newStudent.save();
+                res.send(newStudent);
+            } catch (error) {
+                res.status(500).send(error);
+            }
+            */
             next();     
         }
 
