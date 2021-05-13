@@ -1,36 +1,42 @@
 <!DOCTYPE html>
-  <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta charset="utf-8" />
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <title>Applicant Profiles</title>
-      <script src="student.js"></script>
-      <link rel="stylesheet" href="../stylesheets/profiles.css">
-  </head>
-  <!-- This page loads all of the student profiles as boxes with associated application statuses, as a way for admissions officers to sort them. Only Admissions officers can see this -->
-  <body>
-      <!-- Currently this button is needed to load the student boxes, they should display when the page first loads -->
-    <form action="/student/" method="get">
-        <button  class="btn" type="submit">Refresh Applicant Page</button>
-    </form>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <title>Applicant Profiles</title>
+        <script src="student.js"></script>
+        <link rel="stylesheet" href="../stylesheets/profiles.css">
+    </head>
+    <!-- This page loads all of the student profiles as boxes with associated application statuses, as a way for admissions officers to sort them. Only Admissions officers can see this -->
+    <body>
+        <div class="logo-login">
+                <img src="zoom_logo.png" width="200" height="200" class="center"/>
+        </div>  
     
-    <div class="database-tables">
-
-        <div class="subheader">
-            <h2>Students</h2>
-        </div>
-
-        <table id="Students" class="table" border="1" >
-            <% if(locals.student) {%>
+    
+        <center>
+            <div class="subheader" style="padding-top: 50px;">
+                <h2>Students</h2>
+            </div>
+        </center>
+            
+              
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="margin-bottom: 15px; margin-top:15px;">
                 <% for(var i = 0; i < student.length; i++) {%>
-                    <td>
+                    <div class="col">
+                    
                         <div>
                             <center>
-                                <%= student[i].DegreeType %><br>
+                                <h3><%= student[i].DegreeType %><br></h3>
                                 <!-- Switch case for box color based on application status -->
                                 <% switch (student[i].ApplicationStatus) {
                                     case 'Accepted' : %>
-                                        <div style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
+                                        <% if (student[i].Response == "Declined") { %>
+                                            <div style="width:150px;height:150px;background-color:#D97F7F;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
+                                        <% } else { %>
+                                            <div style="width:150px;height:150px;background-color:#A9CF97;border:2px solid #000;border-radius: 25px; margin: 20px;"></div>
+                                        <% } %>
                                         <% break;
                                     
                                     case 'Waitlist' : %>
@@ -50,30 +56,23 @@
                                 <footcaption>
                                     <%= student[i].ApplicationStatus %><br>
                                     <%= student[i].FirstName %>
-                                    <%= student[i].MiddleName %>
+                                    <% if (student[i].MiddleName != "N/A") { %>
+                                        <%= student[i].MiddleName %>
+                                    <% } %>    
                                     <%= student[i].LastName %><br>
                                     <%= student[i]._id %><br>
-                                    <!-- In theory this button should load /views/admisStudentView with the relevent student's info-->
-                                    <!-- I need some way to send the student's id to get that info-->
-                                    <a href="/AdmisStudentView" onclick="location.href=this.href+'?ID='+'<%= student[i]._id %>';return false;">
-                                        <button id="sendID" value click>View Profile ID in URL </button>
-                                    </a>
-
+                                    
                                     <form action="/student/detail" method="post">
                                         <button type="submit" name="_id" value="<%= student[i]._id %>">
-                                            View Profile Using Routes
+                                            View Profile
                                         </button>
                                     </form>
-                                    
-                                    
-
                                 </footcaption>
                             </center>   
                         </div>
-                    </td>
+                    </div>
                 <% } %>
-            <% } %>
-        </table>
-    </div>
-  </body>
+            </div>
+        </div>
+    </body>
 </html>

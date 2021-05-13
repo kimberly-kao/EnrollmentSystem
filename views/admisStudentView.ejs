@@ -12,164 +12,221 @@
 </head>
 
 <body>
-    <script>
-
-            document.getElementById('submit').onclick = function() {
-                console.log("hello world");
-                let params = new URLSearchParams(document.location.search.substring(1));
-                let ID = params.get("ID");
-                console.log("hello world");
-                this.value = ID;
-            }
-        
-    </script>
-
-
-    <div class="content">
-        <form action="/student/detail" method="post">
-            <button type="submit" id="submit" name="_id" value="1">
-                View Student
-            </button>
-        </form>
-        
-
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div id="profilePic">
-                        <center>image here</center>
-                    </div>
-                    <div id="files">
-                        <center> files here</center>
-                    </div>
+    <div>
+        <div class="row justify-content-between" style="margin-left: 25px; margin-right: 25px; margin-top: 5%;">
+            <div class="col col-lg-2">
+                <div id="profilePic">
+                    <center>image here</center>
                 </div>
-                <div class="col-5" id="boxstudent">
+                <div id="files">
+                    <center> 
+                        <a href="<%= student_detail.Transcripts%>">
+                            <button type="button" class="btn btn btn-space btn-outline-primary">Transcripts</button>
+                        </a>
+                        <a href="<%= student_detail.APScores%>">
+                            <button type="button" class="btn btn-space btn-outline-primary">Test Scores</button>
+                        </a>
+                        <a href="<%= student_detail.LetterOfRec%>">
+                            <button type="button" class="btn btn-space btn-outline-primary">Letters of </br> Recommendation</button>
+                        </a>
+                        <a href="<%= student_detail.Extracurricular%>">
+                            <button type="button" class="btn btn-space btn-outline-primary">Extra Curriculars</button>
+                        </a>
+                        <a href="<%= student_detail.PIQ%>">
+                            <button type="button" class="btn btn-space btn-outline-primary">PIQ</button>
+                        </a>
+                    </center>
+                </div>
+            </div>
+            <div class="col" >
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="4"><center>Personal Information</center></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Applicant ID</th>
+                            <th colspan="2">Submission Date & Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><%= student_detail._id%></td>
+                            <td colspan="2"><%= student_detail.SubmissionDateTime%></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>First</th>
+                            <th>Middle</th>
+                            <th>Last</th>
+                            <th>Gender</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= student_detail.FirstName%></td>
+                            <td><%= student_detail.MiddleName%></td>
+                            <td><%= student_detail.LastName%></td>
+                            <td><%= student_detail.Gender%></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Username</th>
+                            <th colspan="2">Password</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><%= student_detail.Username%></td>
+                            <td colspan="2"><%= student_detail.Password%></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Birthday</th>
+                            <th colspan="2">Military Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><%= student_detail.Birthday%></td>
+                            <td colspan="2"><%= student_detail.MilitaryStatus%></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2"><center>Applicant Contact Information</center></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>Telephone Number</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= student_detail.Telephone%></td>
+                            <td><%= student_detail.StudentEmail%></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><%= student_detail.StudentAddress%></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2"><center>Application Information</center></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Acceptance Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><%= student_detail.Semester%></td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Degree Type</th>
+                            <th>Major</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= student_detail.DegreeType%></td>
+                            <td><%= student_detail.Major%></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2"><center>Most Recent Schooling</center></th>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>School Name</th>
+                            <th>School Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><%= student_detail.PreviousSchool%></td>
+                            <td><%= student_detail.PreviousSchoolAddress%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-4 col-md-auto attribute" id="adminButtons">
+                <center>
+                <p class="ex1">
+                    <div class="logo-login">
+                        
+                            <img src="images/zoom_logo.png" width="200" height="200"/>
+                        
+                        </div>
                     <div class="row">
-                        <div class="col" id="input">
-                            <div class="row attribute" id="fname">
-                                First Name:
-                            </div>
-                            <div class="row attribute" id="mname">
-                                Middle Name:
-                            </div>
-                            <div class="row attribute" id="lname">
-                                Last Name:
-                            </div>
-                            <div class="row attribute" id="address">
-                                Address:
-                            </div>
-                            <div class="row attribute" id="bday">
-                                Birthday:
-                            </div>
-                            <div class="row attribute" id="email">
-                                Email:
-                            </div>
-                            <div class="row attribute" id="telephone">
-                                Telephone:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                Grade:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                School:
-                            </div>
-                            <div class="row attribute" id="gpa">
-                                GPA:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                Major:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                SAT Score:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                ACT Score:
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                PIQ: 
-                            </div>
-                            <div class="row attribute" id="attribute">
-                                Status:
-                            </div>
-                        </div>
-                        <div class="col-4" id="ans">
-                         
-                                <div class="row attribute" id="fname">
-                                   
-                                </div>
-                                <div class="row attribute" id="mname">
-                                    
-                                </div>
-                                <div class="row attribute" id="lname">
-                                    
-                                </div>
-                                <div class="row attribute" id="address">
-                                    
-                                </div>
-                                <div class="row attribute" id="bday">
-                                    
-                                </div>
-                                <div class="row attribute" id="email">
-                                    
-                                </div>
-                                <div class="row attribute" id="telephone">
-                                    123-456-7890
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    12
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    Walnut High School
-                                </div>
-                                <div class="row attribute" id="gpa">
-                                    3.72
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    Computer Science
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    1450
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    N/A
-                                </div>
-                                <div class="row attribute" id="attribute">
-                                    PIQ: blah blah blah
-                                </div>
-                         
-                        </div>
+                        <h1>Application Status: </br> <%= student_detail.ApplicationStatus %></h1>
                     </div>
-                </div>
-                <div class="col-3 attribute" id="adminButtons">
-                    <div id="editText">
-                        <h6>Comments:</h6>
+                    <div class="row">
+                        <% if(student_detail.ApplicationStatus == "Accepted" || student_detail.Response == "Declined") { %>
+                            
+                            <%switch(student_detail.Response) {
+                                case 'Accepted' : %>
+                                    <h3></br>Applicant Accepted Enrollment Offer</h3>
+                                    <% break;
+                                
+                                case 'Waiting' : %>
+                                    <h3></br>Waiting for Applicant Response</h3>
+                                    <% break;
+                                
+                                    
+                                case 'Declined' : %>
+                                    <h3></br>Applicant Turned Down </br> Enrollment Offer</h3>
+                                    <% break;
+                                    
+                            } %>
+                        <% } %>
+                    </div>
+                </p>
+                </br>
+                <form action="/AdmisStudentView" method="post"></form>
+                    <div id="buttons">
                         <center>
-                            <div id="comment" contenteditable="true">
-                                <center> comments </center>
-                            </div>
+                            <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
+                            <a href="profiles.ejs">
+                                <button type="button" class="btn btn-danger">Reject</button>
+                            </a>
+                            <a href="profiles.ejs">
+                                <button type="button" class="btn btn-secondary">WaitList</button>
+                            </a>
                         </center>
                     </div>
-                    <form action="/AdmisStudentView" method="post"></form>
-                        <div id="buttons">
-                            <center>
-                                <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
-                                <a href="profiles.html">
-                                    <button type="button" class="btn btn-danger">Reject</button>
-                                </a>
-                                <a href="profiles.html">
-                                    <button type="button" class="btn btn-secondary">WaitList</button>
-                                </a>
-                            </center>
-                        </div>
-                    </form>
-                    <div id="logo">
-                        <img src="images/zoom_logo.png" width=300 height=300>
-                    </div>
-                </div>
+                </form>
+            </center>
             </div>
         </div>
     </div>
-    
 </body>
 
 </html>

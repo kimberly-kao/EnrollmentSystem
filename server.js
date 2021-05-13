@@ -37,41 +37,6 @@ app.use(routes);
 // https://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));
 
-// This is left over from trying to authenticate log in info, I don't know if it'll actually work since the tutorial did not use Atlas
-app.post('/api/register', async (req, res) => {
-  
-  console.log(req.body)
-  const { Username, Password } = req.body
-
-  if (!Username || typeof Username !== 'string'){
-    return res.json ({ status: 'error', error: 'Invaild Username'})
-  }
-
-  if (!Password || typeof Password !== 'string'){
-    return res.json ({ status: 'error', error: 'Invaild Password'})
-  }
-
-  if (Password.length < 5){
-    return res.json ({ status: 'error', error: 'Password must be at least 6 characters'})
-  }
-
-  res.json({status : 'ok'})
-
-  try{
-    const response = await StudentUser.create({
-      Username,
-      Password
-    })
-    console.log("User created sucessfully: ", response)
-  } catch(error) {
-    if (error.code === 11000) {
-      //Duplicate Key
-      return res.json({ status: 'error', error: 'Username already in use'})
-    }
-    throw error
-  }
-
-})
 
 // connecting to the database
 mongoose.connect(DB_STRING, { 
@@ -79,8 +44,6 @@ mongoose.connect(DB_STRING, {
   useUnifiedTopology: true,
   useCreateIndex: true
 });
-
-var Student = require('./schema/StudentSchema');
 
 // send the landing page to the client
 app.get("/", (request, response) => {
@@ -110,25 +73,9 @@ app.get('/HstudentView', function (request, response) {
   response.sendFile(__dirname + "/views/studentview.html");
 });
 
-
-
-app.get('/AdmisStudentView', (req, res) => {                        
-  let ID = req.url.split("=")[1];            
-  //Pull from database
-  Student.findOne({_id: ID, function(err, student_details){
-    res.student_details = student_details;
-    console.log(res.student_details);
-  }});
-
-  //
+app.get('/AdmisStudentView', (req, res) => {                
   res.render(__dirname + "/views/admisStudentView.ejs");
-  console.log(ID);     
-  
-
 });
-
-
-
 
 app.get('/studentProfiles', function (request, response) {
   response.render(__dirname + "/views/profiles.ejs");

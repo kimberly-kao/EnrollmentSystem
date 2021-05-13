@@ -47,7 +47,7 @@
         <div class="tab-pane container fade" id="administrator">...</div>
     </div>
 
-    <form>
+   
 
         <p>Username</p>
         <input type = "text" name="username">
@@ -57,17 +57,18 @@
 
         <br/>
         <!-- This button needs to be able to compare a log in, then load all student information so student boxes apprear on the profiles page-->
-        <a href="/studentProfiles">
-          <form action="/student" method="get">
-              <button type="button">Login</button>
+      
+        
+          <form action="/student/admisLogin" method="get">
+              <button type="submit" name="_id">Login</button>
           </form>
-        </a>
+          
         <br/>
 
         <div class="login-links1">
             <a href="/forgotPassword">Forgot password?</a>
         </div>
-    </form>
+  
 
   </div>
 </body>

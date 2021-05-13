@@ -9,25 +9,22 @@ app.set('view engine', 'ejs');
 var Student = require('../schema/StudentSchema');
 
 // Get all students & info in the DB
-router.get('/', getStudents, render);
+router.get('/admisLogin', getStudents);
 
-    function getStudents(req, res, next){
+    function getStudents(req, res){
         Student.find({}, function (err, student) {
             console.log(student);
-            console.log("Testing")
             res.locals.student = student;
-            next();
+            res.render('../views/profiles.ejs', {
+                student: res.locals.student
+            });
         });
+        
     };
 
     function render(req, res){
         res.render("../views/profiles.ejs");
     };
-
-
-   
-      
-
 
 
 // Get info for a single student based on _id for admissions
@@ -39,17 +36,10 @@ router.post('/detail/', getStudentDetails);
             res.locals.student_details = student_details;
             console.log("Printing student_details")
             console.log(student_details);
-            //res.send();
+            res.render('../views/admisStudentView.ejs', {
+                student_detail : res.locals.student_details
+            });
         });
-
-        console.log("Printing res.locals.student_details")
-        console.log(res.locals.student_details);
-         res.render('../views/admisStudentView.ejs', {
-            student_detail : res.locals.student_details,
-            
-        
-          });
-      
     }
 
     function renderAdmisStudentView(req, res){
@@ -63,7 +53,18 @@ router.post('/detail/', getStudentDetails);
 
 
 // Get info for a single student based on _id for applicant
-router.post('/mine', getStudentDetails, renderStudentView);
+router.post('/mine', getMyDetails);
+
+    function getMyDetails (req, res){
+        Student.findOne({_id: req.body._id}, function(err, student_details){
+            res.locals.student_details = student_details;
+            console.log("Printing student_details")
+            console.log(student_details);
+            res.render('../views/studentview.ejs', {
+                student_detail : res.locals.student_details
+            });
+        });
+    }
 
     function renderStudentView(req, res){
         res.render("../views/studentview.ejs");

@@ -43,32 +43,35 @@
             <div class="tab-pane container fade" id="administrator">...</div>
         </div>
 
-        <form>
+  
 
             <p>Applicant ID</p>
-            <input type = "text" name="appID" id="user">
+            <input type = "text" id="appID">
 
             <br/>
 
-            <!-- This button needs to be able to verify a log in, then load the correct student's information in the student view page-->
-            <a href="/studentView">
-                <form action="/student" method="get">
-                    <button type="button">Login</button>
-                </form>
-            </a>
-            <a href="/studentView" onclick="location.href=this.href+'?ID='+'';return false;">
-                <button id="sendID" value click>View Profile ID in URL </button>
-            </a>
-            <br/>
+            <form action="/student/mine" method="post">
+                <button type="submit" id="login" name="_id" value="1" onclick="setValue()">
+                    Login
+                </button>
+            </form>
+
 
             <div class="login-links1">
                 <a href="/forgotPassword">Forgot password?</a>
             </div>
-        </form>
+       
 
 
     </div>
-    
+    <script>
+        function setValue(){
+            if (document.getElementById("appID").value){
+                document.getElementById("login").value = document.getElementById("appID").value;
+            }
+            
+        }
+    </script>
 
 </body>
 </html>

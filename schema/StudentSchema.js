@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const StudentSchema = new mongoose.Schema({
     _id: { type: String},
     Username: { type: String },
-    Password: { type: Number },
+    Password: { type: String },
     FirstName: { type: String },
     LastName: { type: String },
     MiddleName: { type: String },
@@ -18,14 +18,16 @@ const StudentSchema = new mongoose.Schema({
     DegreeType: { type: String },
     MilitaryStatus: { type: String },
     PreviousSchool: { type: String },
-    SchoolAddress: { type: String },
+    PreviousSchoolAddress: { type: String },
     ApplicationStatus: { type: String},
     Telephone: { type: String },
     SubmissionDateTime: { type: Date },
     Transcripts: { type: String },
     APScores: { type: String },
     LetterOfRec: { type: String },
-    Extracurricular: { type: String }
+    Extracurricular: { type: String },
+    PIQ: { type: String},
+    Response: { type: String}
 });
 
 module.exports = mongoose.model('Student', StudentSchema, 'Student');
