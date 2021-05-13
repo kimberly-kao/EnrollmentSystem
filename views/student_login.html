@@ -46,17 +46,18 @@
         <form>
 
             <p>Username</p>
-            <input type = "text" name="username">
+            <input type = "text" name="username" id="user">
 
             <p>Password</p>
-            <input type = "password" name="password">
+            <input type = "password" name="password" id="pass">
 
             <br/>
 
             <!-- This button needs to be able to verify a log in, then load the correct student's information in the student view page-->
-            <a href="/studentView">
-                <button type="button">Login</button>
-            </a>
+           
+            <form action="/student/studentLogin" method="post">
+                <button  class="btn" type="submit">Login</button>
+            </form>
 
             <br/>
 
@@ -67,5 +68,9 @@
 
 
     </div>
+    <script>
+        
+    </script>
+
 </body>
 </html>

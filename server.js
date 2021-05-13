@@ -104,6 +104,9 @@ app.get('/forgotPassword', function (request, response) {
 app.get('/studentView', function (request, response) {
   response.render(__dirname + "/views/studentview.ejs");
 });
+app.get('/HstudentView', function (request, response) {
+  response.sendFile(__dirname + "/views/studentview.html");
+});
 
 app.get('/AdmisStudentView', function (request, response) {
   response.render(__dirname + "/views/admisStudentView.ejs");

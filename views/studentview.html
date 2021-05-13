@@ -13,46 +13,7 @@
         <form action="/student" method="get">
             <button onclick="getStudents" class="btn" type="submit">Refresh Applicant Page</button>
         </form>
-        <tr>
-           <% if(locals.student){ %>
-                <% for(var i = 0; i < student.length; i++) {%>
-                    <%if(student[i].Username == response.get("user") && student[i].Password == response.get("pass")){%>
-                        <%respose.write("Invaild logon")%>
-                        <%response.end()%>
-                    <%}%>
-                <%}%>
-            <% }%>
-
-            <% if(locals.student) {%>
-                
-                <%= student[1]._id %>
-                <td><%= student[1].Username %></td>
-                <td><%= student[1].Password %></td>
-                <td><%= student[1].SubmissionDateTime %></td>
-                <td><%= student[1].ApplicationStatus %></td>
-                
-                <td><%= student[1].LastName %></td>
-            
-                <td><%= student[1].Birthday %></td>
-                <td><%= student[1].Gender %></td>
-                <td><%= student[1].StudentEmail %></td>
-                <td><%= student[1].StudentAddress %></td>
-                <td><%= student[1].Telephone %></td>
-                <td><%= student[1].Semester %></td>
-                <td><%= student[1].SAT %></td>
-                <td><%= student[1].Major %></td>
-                <td><%= student[1].DegreeType %></td>
-                <td><%= student[1].MilitaryStatus %></td>
-                <td><%= student[1].PreviousSchool %></td>
-                <td><%= student[1].SchoolAddress %></td>
-                <td><%= student[1].Transcripts %></td>
-                <td><%= student[1].APScores %></td>
-                <td><%= student[1].LetterOfRec %></td>
-                <td><%= student[1].Extracurriculum %></td>
-
-            <% } %>
-        </tr>
-       
+        
         <div class="content">
             <div class="container">
                 <div class="row">

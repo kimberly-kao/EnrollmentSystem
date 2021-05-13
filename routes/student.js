@@ -13,6 +13,7 @@ router.get('/', getStudents, render);
     function getStudents(req, res, next){
         Student.find({}, function (err, student) {
             console.log(student);
+            console.log("Testing")
             res.locals.student = student;
             next();
         });
@@ -22,20 +23,33 @@ router.get('/', getStudents, render);
         res.render("../views/profiles.ejs");
     };
 
+
+
 // Get info for a single student based on _id for admissions
-router.post('/detail', getStudentDetails, renderAdmisStudentView);
+router.post('/detail/', getStudentDetails, renderAdmisStudentView);
 
     function getStudentDetails (req, res, next){
+       
         Student.findOne({_id: req.body._id}, function(err, student_details){
-            res.locals.student = student_details;
-            res.send(res.locals);
-            next();
+            res.locals.student_details = student_details;
+            console.log(student_details);
+            res.send();
+            
         });
+        //Student.findById(req.params.id);
+
+        next();
     }
 
     function renderAdmisStudentView(req, res){
+        //res.render('"../views/admisStudentView.ejs", { id: _id});
         res.render("../views/admisStudentView.ejs");
     }
+
+
+
+
+
 
 // Get info for a single student based on _id for applicant
 router.post('/mine', getStudentDetails, renderStudentView);
@@ -57,7 +71,7 @@ router.post('/admisDecision', getStudentDetails, updateDecision, renderAdmisStud
 // Applicant send decision on admission
 router.post('/admisDecision', getStudentDetails, updateEnrollment, renderStudentView);
     
-        function updateDecision (req, res, next){
+        function updateEnrollment (req, res, next){
     
             // Write to Student.Response according to input: accept or denied
             
@@ -67,9 +81,38 @@ router.post('/admisDecision', getStudentDetails, updateEnrollment, renderStudent
 // create a new applicant
 router.post('/application', createStudent, returnToLogIn);
     
+            async function run() {
+
+                try {
+            
+                await client.connect();
+                
+                    const database = client.db("sample_mflix");
+                
+                    const movies = database.collection("movies");
+                
+                    // create a document to be inserted
+                
+                    const doc = { name: "Red", town: "kanto" };
+                
+                    const result = await movies.insertOne(doc);
+                
+                    console.log(
+                
+                        `${result.insertedCount} documents were inserted with the _id: ${result.insertedId}`,
+                
+                    );
+            
+                } finally {
+            
+                    await client.close();
+            
+                }
+            
+            }
         function createStudent (req, res, next){
     
-            // Create new student document in table based on info from views/addStudent.ejs
+            
             
             next();     
         }

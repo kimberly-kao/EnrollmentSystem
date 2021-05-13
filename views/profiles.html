@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+  <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta charset="utf-8" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <title>Applicant Profiles</title>
+      <script src="student.js"></script>
+      <link rel="stylesheet" href="../stylesheets/profiles.css">
+  </head>
+  <!-- This page loads all of the student profiles as boxes with associated application statuses, as a way for admissions officers to sort them. Only Admissions officers can see this -->
+  <body>
+      <!-- Currently this button is needed to load the student boxes, they should display when the page first loads -->
+    <form action="/student" method="get">
+        <button onclick="getStudents" class="btn" type="submit">Refresh Applicant Page</button>
+    </form>
+    
+  </body>
+</html>
