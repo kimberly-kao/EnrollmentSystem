@@ -16,7 +16,9 @@
         <div class="row justify-content-between" style="margin-left: 25px; margin-right: 25px; margin-top: 5%;">
             <div class="col col-lg-2">
                 <div id="profilePic">
-                    <center>image here</center>
+                    <center>
+                        <img src="/images/profile.png" width="150" height="150"/>
+                    </center>
                 </div>
                 <div id="files">
                     <center> 
@@ -180,11 +182,7 @@
             <div class="col-4 col-md-auto attribute" id="adminButtons">
                 <center>
                 <p class="ex1">
-                    <div class="logo-login">
-                        
-                            <img src="images/zoom_logo.png" width="200" height="200"/>
-                        
-                        </div>
+                    <img src="/images/zoom_logo.png" width="300" height="300"/>
                     <div class="row">
                         <h1>Application Status: </br> <%= student_detail.ApplicationStatus %></h1>
                     </div>
@@ -193,7 +191,8 @@
                             
                             <%switch(student_detail.Response) {
                                 case 'Accepted' : %>
-                                    <h3></br>Applicant Accepted Enrollment Offer</h3>
+                                    <h3></br>Applicant Accepted </br>
+                                        Enrollment Offer</h3>
                                     <% break;
                                 
                                 case 'Waiting' : %>
@@ -213,13 +212,24 @@
                 <form action="/AdmisStudentView" method="post"></form>
                     <div id="buttons">
                         <center>
-                            <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
-                            <a href="profiles.ejs">
-                                <button type="button" class="btn btn-danger">Reject</button>
-                            </a>
-                            <a href="profiles.ejs">
-                                <button type="button" class="btn btn-secondary">WaitList</button>
-                            </a>
+                            <%switch(student_detail.ApplicationStatus) {
+                                case 'Pending' : %>
+                                    <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
+                                    <a href="profiles.ejs">
+                                        <button type="button" class="btn btn-danger">Reject</button>
+                                    </a>
+                                    <a href="profiles.ejs">
+                                        <button type="button" class="btn btn-secondary">WaitList</button>
+                                    </a>
+                                    <% break;
+                                
+                                case 'Waitlist' : %>
+                                    <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
+                                    <a href="profiles.ejs">
+                                        <button type="button" class="btn btn-danger">Reject</button>
+                                    </a>
+                                    <% break;
+                            } %>
                         </center>
                     </div>
                 </form>

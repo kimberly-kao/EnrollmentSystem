@@ -14,7 +14,9 @@
         <div class="row justify-content-between" style="margin-left: 25px; margin-right: 25px; margin-top: 5%;">
             <div class="col col-lg-2">
                 <div id="profilePic">
-                    <center>image here</center>
+                    <center>
+                        <img src="/images/profile.png" width="150" height="150"/>
+                    </center>
                 </div>
                 <div id="files">
                     <center> 
@@ -177,83 +179,71 @@
 
             <div class="col-4 col-md-auto attribute" id="adminButtons">
                 <center>
-                <p class="ex1">
-                    <div class="logo-login">
-                        
-                            <img src="images/zoom_logo.png" width="200" height="200"/>
-                        
+                    <p class="ex1">
+                        <img src="/images/zoom_logo.png" width="300" height="300"/>
+                        <div class="row">
+                            <h1>Application Status: </br> <%= student_detail.ApplicationStatus %></h1>
                         </div>
-                    <div class="row">
-                        <h1>Application Status: </br> <%= student_detail.ApplicationStatus %></h1>
-                    </div>
-                    
-                </p>
-                </br>
-                <form action="/appDecision" method="patch"></form>
-                    <% if(student_detail.ApplicationStatus == "Accepted") { %>
-                        <%switch(student_detail.Response) {
-                            case 'Accepted' : %>
-                                <h3>
-                                    We look forward to seeing </br> 
-                                    you on Campus! Look for </br>
-                                    your welcome package in the mail
-                                </h3>
-                                <% break;
-                            
-                            case 'Waiting' : %>
-                                <div id="buttons">
-                                    <center>
-                                        <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block">Accept</button>
-                                        
-                                        <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block">Reject</button>
-                                    </center>
-                                </div>
-                                <% break;
-                            
+                        
+                    </p>
+                    </br>
+                    <form action="/appDecision" method="patch"></form>
+                        <% if(student_detail.ApplicationStatus == "Accepted") { %>
+                            <%switch(student_detail.Response) {
+                                case 'Accepted' : %>
+                                    <h3>
+                                        We look forward to seeing </br> 
+                                        you on Campus! Look for </br>
+                                        your welcome package in the mail
+                                    </h3>
+                                    <% break;
                                 
-                            case 'Declined' : %>
-                                <h3>
-                                    Thank you for your interest,</br>
-                                     this account will be deactivated </br>
-                                     at the end of the enrollment </br>
-                                    period 
-                                </h3>
-                                <% break;
+                                case 'Waiting' : %>
+                                    <div id="buttons">
+                                        <center>
+                                            <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block">Accept</button>
+                                            
+                                            <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block">Reject</button>
+                                        </center>
+                                    </div>
+                                    <% break;
                                 
-                        } %>
-                    <% } %>
+                                    
+                                case 'Declined' : %>
+                                    <h3>
+                                        Thank you for your interest,</br>
+                                        this account will be deactivated </br>
+                                        at the end of the enrollment </br>
+                                        period 
+                                    </h3>
+                                    <% break;
+                                    
+                            } %>
+                        <% } %>
 
-                    
-                </form>
-            </center>
-            </div>
-        </div>
-        
-                    <div class="col-3 attribute" id="studentBtn">
-                        <div id = "logOut">
-                            <center>
-                                <button type="button" class="btn btn-primary btn-lg" id="logO">Log Out</button>
-                            </center>
-                        </div>
-                        <div id="logo">
-                            <img src="images/zoom_logo.png" width=300 height=300>
-                        </div>
-                        <div id="buttons">
-                            <center>
-                                <button class="btn btn-primary" type="submit" id="edit">Edit</button>
-                                <button class="btn btn-primary" type="submit" id="save">Save</button>
-                            </center>
-                        </div>
-                        <div id="studentAns">
-                            <center>
-                                <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block hidden">Accept</button>
-                                <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block hidden">Reject</button>
-                            </center>
-                        </div>
+                        
+                    </form>
+                    <div id = "logOut">
+                        <center>
+                            <button type="button" class="btn btn-primary btn-lg" id="logO">Log Out</button>
+                        </center>
                     </div>
-                </div>
+                    <div id="buttons">
+                        <center>
+                            <button class="btn btn-primary" type="submit" id="edit">Edit</button>
+                            <button class="btn btn-primary" type="submit" id="save">Save</button>
+                        </center>
+                    </div>
+                    <div id="studentAns">
+                        <center>
+                            <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block hidden">Accept</button>
+                            <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block hidden">Reject</button>
+                        </center>
+                    </div>
+                </center>
             </div>
         </div>
         
+                          
     </body>
 </html>
