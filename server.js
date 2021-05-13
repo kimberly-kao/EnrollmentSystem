@@ -80,6 +80,8 @@ mongoose.connect(DB_STRING, {
   useCreateIndex: true
 });
 
+var Student = require('./schema/StudentSchema');
+
 // send the landing page to the client
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/views/student_login.html");
@@ -108,9 +110,25 @@ app.get('/HstudentView', function (request, response) {
   response.sendFile(__dirname + "/views/studentview.html");
 });
 
-app.get('/AdmisStudentView', function (request, response) {
-  response.render(__dirname + "/views/admisStudentView.ejs");
+
+
+app.get('/AdmisStudentView', (req, res) => {                        
+  let ID = req.url.split("=")[1];            
+  //Pull from database
+  Student.findOne({_id: ID, function(err, student_details){
+    res.student_details = student_details;
+    console.log(res.student_details);
+  }});
+
+  //
+  res.render(__dirname + "/views/admisStudentView.ejs");
+  console.log(ID);     
+  
+
 });
+
+
+
 
 app.get('/studentProfiles', function (request, response) {
   response.render(__dirname + "/views/profiles.ejs");

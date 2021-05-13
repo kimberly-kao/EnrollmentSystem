@@ -25,26 +25,36 @@ router.get('/', getStudents, render);
     };
 
 
+   
+      
+
+
 
 // Get info for a single student based on _id for admissions
-router.post('/detail/', getStudentDetails, renderAdmisStudentView);
+router.post('/detail/', getStudentDetails);
 
-    function getStudentDetails (req, res, next){
+    function getStudentDetails (req, res){
        
         Student.findOne({_id: req.body._id}, function(err, student_details){
             res.locals.student_details = student_details;
+            console.log("Printing student_details")
             console.log(student_details);
-            res.send();
-            
+            //res.send();
         });
-        //Student.findById(req.params.id);
 
-        next();
+        console.log("Printing res.locals.student_details")
+        console.log(res.locals.student_details);
+         res.render('../views/admisStudentView.ejs', {
+            student_detail : res.locals.student_details,
+            
+        
+          });
+      
     }
 
     function renderAdmisStudentView(req, res){
         //res.render('"../views/admisStudentView.ejs", { id: _id});
-        res.render("../views/admisStudentView.ejs");
+        
     }
 
 
