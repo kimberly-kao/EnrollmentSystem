@@ -23,7 +23,7 @@
                 <div id="files">
                     <center> 
                         <a href="<%= student_detail.Transcripts%>">
-                            <button type="button" class="btn btn btn-space btn-outline-primary">Transcripts</button>
+                            <button type="submit" class="btn btn btn-space btn-outline-primary">Transcripts</button>
                         </a>
                         <a href="<%= student_detail.APScores%>">
                             <button type="button" class="btn btn-space btn-outline-primary">Test Scores</button>
@@ -214,20 +214,29 @@
                         <center>
                             <%switch(student_detail.ApplicationStatus) {
                                 case 'Pending' : %>
-                                    <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
-                                    <a href="profiles.ejs">
-                                        <button type="button" class="btn btn-danger">Reject</button>
-                                    </a>
-                                    <a href="profiles.ejs">
-                                        <button type="button" class="btn btn-secondary">WaitList</button>
-                                    </a>
+                          
+                          
+                                    <form action="/student/admisDecisionAccept" method="post">
+                                      <button type="submit" id="_id" value="<%= student_detail._id %>" name="_id" class="btn btn-success" >Admit</button>
+                                    </form>
+              
+                                    <form action="/student/admisDecisionDeny" method="post">
+                                      <button type="submit" id="_id" value="<%= student_detail._id %>" name="_id" class="btn btn-danger" >Reject</button>
+                                    </form>
+                                    <form action="/student/admisDecisionWaitlist" method="post">
+                                      <button type="submit" id="_id" value="<%= student_detail._id %>" name="_id" class="btn btn-secondary">WaitList</button>
+                                    </form>   
+                                  
+                    
                                     <% break;
                                 
                                 case 'Waitlist' : %>
-                                    <button type="button" class="btn btn-success" onclick="studentDecision()">Admit</button>
-                                    <a href="profiles.ejs">
-                                        <button type="button" class="btn btn-danger">Reject</button>
-                                    </a>
+                                    <form action="/student/admisDecisionAccept" method="post">
+                                      <button type="submit" id="_id" value="<%= student_detail._id %>" name="_id" class="btn btn-success">Admit</button>
+                                    </form>
+                                    <form action="/student/admisDecisionDeny" method="post">
+                                      <button type="submit" id="_id" value="<%= student_detail._id %>" name="_id" class="btn btn-danger">Reject</button>
+                                    </form>
                                     <% break;
                             } %>
                         </center>

@@ -187,7 +187,7 @@
                         
                     </p>
                     </br>
-                    <form action="/appDecision" method="patch"></form>
+                    
                         <% if(student_detail.ApplicationStatus == "Accepted") { %>
                             <%switch(student_detail.Response) {
                                 case 'Accepted' : %>
@@ -201,9 +201,14 @@
                                 case 'Waiting' : %>
                                     <div id="buttons">
                                         <center>
-                                            <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block">Accept</button>
-                                            
-                                            <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block">Reject</button>
+                                          <form action="/student/appDecisionAccept" method="post">
+                                            <button type="submit" id="_id" name="_id" value="<%= student_detail._id %>"class="btn btn-success btn-lg btn-block" > 
+                                                Accept
+                                            </button>
+                                          </form>
+                                          <form action="/student/appDecisionDecline" method="post">
+                                            <button type="submit" id="_id" name="_id" value="<%= student_detail._id %>" class="btn btn-danger btn-lg btn-block">Reject</button>
+                                          </form> 
                                         </center>
                                     </div>
                                     <% break;
@@ -222,7 +227,7 @@
                         <% } %>
 
                         
-                    </form>
+                  
                     <div id = "logOut">
                         <center>
                             <button type="button" class="btn btn-primary btn-lg" id="logO">Log Out</button>
@@ -234,16 +239,19 @@
                             <button class="btn btn-primary" type="submit" id="save">Save</button>
                         </center>
                     </div>
-                    <div id="studentAns">
-                        <center>
-                            <button type="button" id="acceptStu" class="btn btn-success btn-lg btn-block hidden">Accept</button>
-                            <button type="button" id="rejectStu" class="btn btn-danger btn-lg btn-block hidden">Reject</button>
-                        </center>
-                    </div>
+                    
                 </center>
             </div>
         </div>
         
-                          
+      <script>
+           //function studentDecision() {
+             // window.location.href = 'profiles.html' 
+             // studentview.getElementById("acceptStu").classList.remove("hidden");
+             // studentview.getElementById("rejectStu").classList.remove("hidden");
+             
+             
+//}
+</script>                 
     </body>
 </html>

@@ -15,11 +15,11 @@ var routes = require('./routes');
 app.set('trust proxy', 1);
 
 // gives access to the variables in .env
-require('dotenv').config()
-
+require('dotenv').config();
+console.log(process.env.db_user);
 // db string const
-// const DB_STRING = "mongodb+srv://" + process.env.db_user + ":" + process.env.db_pw + "@enrollmentdatabase.cchf4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const DB_STRING = "mongodb+srv://dbAccess:oWMW6HAZPeR6SCnh@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
+//const DB_STRING = "mongodb+srv://" + process.env.db_user + ":" + process.env.db_pw + "@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
+const DB_STRING = "mongodb+srv://dbAccess:placeHolderPa33w0rd@enrollmentdatabase.cchf4.mongodb.net/Enrollment?retryWrites=true&w=majority";
 
 // Allows for dynamic files
 app.set('view engine', 'ejs');
